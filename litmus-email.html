@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Litmus</title>
+  <style type="text/css">
+    a {
+      text-decoration: none;
+    }
+  </style>
+  <style type="text/css">
+    a[x-apple-data-detectors] {
+      color: inherit !important;
+      text-decoration: none !important;
+      font-size: inherit !important;
+      font-family: inherit !important;
+      font-weight: inherit !important;
+      line-height: inherit !important;
+    }
+
+    .appleFooter a {
+      text-decoration: none !important;
+      color: #999999 !important;
+    }
+
+    @media screen {
+      @font-face {
+        font-family: 'proxima_nova_rgregular';
+        src: url('https://litmus.com/fonts/Emails/proximanova-regular-webfont.eot');
+        src: url('https://litmus.com/fonts/Emails/proximanova-regular-webfont.eot?#iefix') format('embedded-opentype'),
+        url('https://litmus.com/fonts/Emails/proximanova-regular-webfont.woff') format('woff'),
+        url('https://litmus.com/fonts/Emails/proximanova-regular-webfont.ttf') format('truetype'),
+        url('https://litmus.com/fonts/Emails/proximanova-regular-webfont.svg#proxima_nova_rgregular') format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: 'proxima_nova_rgbold';
+        src: url('https://litmus.com/fonts/Emails/proximanova-bold-webfont.eot');
+        src: url('https://litmus.com/fonts/Emails/proximanova-bold-webfont.eot?#iefix') format('embedded-opentype'),
+        url('https://litmus.com/fonts/Emails/proximanova-bold-webfont.woff') format('woff'),
+        url('https://litmus.com/fonts/Emails/proximanova-bold-webfont.ttf') format('truetype'),
+        url('https://litmus.com/fonts/Emails/proximanova-bold-webfont.svg#proxima_nova_rgbold') format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    }
+
+    @media screen and (-webkit-min-device-pixel-ratio: 0),
+    and (min--moz-device-pixel-ratio: 0) {
+      #normal {
+        font-weight: normal !important;
+      }
+    }
+  </style>
+  <style type="text/css">
+    .owa-link {
+      display: inline-block;
+    }
+
+    .owa-link img {
+      display: block !important;
+    }
+
+    .block {
+      display: block !important;
+    }
+
+    u+.body .gmail-hide {
+      display: none !important;
+    }
+
+    u+#body #gmail-hide {
+      display: none !important;
+    }
+
+    u+.body .gmail-cta {
+      display: inline-block !important;
+    }
+
+    u+.body .gmail-pt15 {
+      margin-top: 15px;
+    }
+
+    u+.body .gmail-pt25 {
+      margin-top: 25px;
+    }
+
+    u+#body a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    u~div .gmail-des-tac {
+      text-align: center !important;
+    }
+
+    u~div .halloween-headline {
+      font-size: 60px !important;
+    }
+
+    u~div .gmail-pt50 {
+      padding-top: 50px !important;
+      padding-bottom: 150px !important;
+    }
+
+    @media screen and (min-width: 750px) {
+      .img-max {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        color: #ffffff;
+        font-size: 16px;
+        display: block;
+        border: 0px;
+      }
+      .deliv {
+        width: 90%;
+        max-width: 90%;
+        height: auto;
+      }
+      .td,
+      .tfoot,
+      .thead {
+        display: table-cell !important;
+      }
+      .table {
+        display: table;
+        width: 100%;
+      }
+      .w5p {
+        width: 2%;
+        min-height: 25px;
+      }
+      .w30 {
+        width: 30%;
+      }
+      .w30p {
+        width: 32%;
+      }
+      .w50 {
+        min-width: 300px;
+        width: 50%;
+      }
+      .w40 {
+        width: 40%;
+      }
+      .w60 {
+        width: 60%;
+      }
+      .w70 {
+        width: 70%;
+      }
+      .des-show {
+        display: block !important;
+      }
+      .des-tal {
+        text-align: left !important;
+      }
+      .des-pt100 {
+        padding-top: 100px !important;
+      }
+      .des-pt75 {
+        padding-top: 75px !important;
+      }
+      .des-pl75 {
+        padding-left: 75px !important;
+      }
+      .des-pt50 {
+        padding-top: 50px !important;
+      }
+      .des-pb50 {
+        padding-bottom: 50px !important;
+      }
+      .des-pr50 {
+        padding-right: 50px !important;
+      }
+      .des-pl50 {
+        padding-left: 50px !important;
+      }
+      .des-pb100 {
+        padding-bottom: 100px !important;
+      }
+      .des-pr0 {
+        padding-right: 0px !important;
+      }
+      .des-pb75 {
+        padding-bottom: 75px !important;
+      }
+      .td-top {
+        display: table-cell;
+        float: left;
+      }
+      .hero h1 {
+        font-size: 50px !important;
+        line-height: 60px !important;
+      }
+      h2 {
+        font-size: 36px !important;
+        line-height: 40px !important;
+      }
+    }
+
+    @media screen and (max-width: 749px) {
+      .mobile-hide {
+        display: none;
+      }
+      .des-tal {
+        text-align: center !important;
+      }
+      .img-max {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        color: #ffffff;
+        font-size: 16px;
+        display: block;
+        border: 0px;
+      }
+      .deliv {
+        width: 90%;
+        max-width: 90%;
+        height: auto;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .img-max2 {
+        max-width: 100% !important;
+        height: auto !important;
+      }
+    }
+  </style>
+  <style type="text/css">
+    [owa] .owa-link div {
+      display: block !important;
+    }
+
+    [owa] .owa-link img {
+      display: block !important
+    }
+
+    [owa] .owa-show {
+      display: block !important;
+    }
+
+    [owa] .owa-no-pad1 {
+      padding-left: 0px !important;
+      padding-right: 0px !important;
+    }
+
+    [owa] .owa-no-pad {
+      padding-left: 0px !important;
+      padding-right: 0px !important;
+    }
+
+    [owa] .owa-no-max {
+      max-width: 100% !important;
+    }
+
+    [owa] .halloween-headline {
+      font-size: 60px !important;
+      text-align: center !important;
+    }
+
+    [owa] .halloween-bg {
+      padding-bottom: 0px !important;
+    }
+
+    [owa] .td,
+    [owa] .tfoot,
+    [owa] .thead {
+      display: table-cell !important;
+    }
+
+    [owa] .img-max {
+      width: 100% !important;
+      max-width: 100% !important;
+      height: auto !important;
+      color: #ffffff;
+      font-size: 16px;
+      display: block;
+      border: 0px;
+    }
+
+    [owa] .w50 {
+      min-width: 300px;
+      width: 50%;
+    }
+
+    [owa] .w5p {
+      width: 2%;
+      min-height: 25px;
+    }
+
+    [owa] .w30p {
+      width: 32%;
+    }
+
+    [owa] .w30 {
+      width: 30%;
+    }
+
+    [owa] .w40 {
+      width: 40%;
+    }
+
+    [owa] .w60 {
+      width: 60%;
+    }
+
+    [owa] .w70 {
+      width: 70%;
+    }
+
+    [owa] .table {
+      display: table;
+      width: 100%;
+    }
+
+    [owa] .des-pt100 {
+      padding-top: 100px !important;
+    }
+
+    [owa] .des-pt75 {
+      padding-top: 75px !important;
+    }
+
+    [owa] .des-pl75 {
+      padding-left: 75px !important;
+    }
+
+    [owa] .des-pt50 {
+      padding-top: 50px !important;
+    }
+
+    [owa] .des-pb50 {
+      padding-bottom: 50px !important;
+    }
+
+    [owa] .des-pr50 {
+      padding-right: 50px !important;
+    }
+
+    [owa] .des-pl50 {
+      padding-left: 50px !important;
+    }
+
+    [owa] .des-pb100 {
+      padding-bottom: 100px !important;
+    }
+
+    [owa] .des-pr0 {
+      padding-right: 0px !important;
+    }
+
+    [owa] .des-pb75 {
+      padding-bottom: 75px !important;
+    }
+
+    @media yahoo {
+      .pt75 {
+        padding-top: 75px;
+      }
+      .gmail-cta {
+        display: none !important;
+      }
+      .td,
+      .tfoot,
+      .thead {
+        display: table-cell !important;
+      }
+      .w50 {
+        min-width: 300px;
+        width: 50%;
+      }
+      .w5p {
+        width: 2%;
+        min-height: 25px;
+      }
+      .w30 {
+        width: 30%;
+      }
+      .w30p {
+        width: 32%;
+      }
+      .w50 {
+        min-width: 300px;
+        width: 50%;
+      }
+      .w40 {
+        width: 40%;
+      }
+      .w60 {
+        width: 60%;
+      }
+      .w70 {
+        width: 70%;
+      }
+      .table {
+        display: table;
+        width: 100%;
+      }
+    }
+
+    .podcast-hover {
+      opacity: 0.7;
+    }
+
+    .podcast-hover:hover {
+      opacity: 1;
+      transition: .3s ease-in-out;
+    }
+  </style>
+</head>
+
+<body style="margin: 0; padding: 0;" class="body" id="body">
+  <div class="preheader" style="display:none;max-height:0;overflow:hidden;">Email brand guidelines, Samsung Email Previews, hotspots for email jobs, and more.</div>
+  <div style="display: none; width: 0px; height: 0px; max-height: 0px; overflow: hidden;">
+    &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  </div>
+  <div class="frame" style="background-color:#e5ecef;box-shadow:-2px 0 10px rgba(188,190,202,0.32);">
+    <div class="section" style="max-width:1200px;margin:0 auto;background-color:#ffffff;">
+      <!--[if (gte mso 9)|(IE)]>
+          <table cellspacing="0" padding="0" border="0" width="100%" role="presentation">
+            <tr>
+              <td align="center" bgcolor="#F3863D" style="mso-padding-bottom-alt: 75px;">
+        <![endif]-->
+      <div class="hero pb75" style="padding-bottom:75px;background-color:#F3863D;max-width:1200px;margin:0 auto;">
+        <!--[if (gte mso 9)|(IE)]>
+            <table cellspacing="0" padding="0" border="0" width="600" role="presentation">
+              <tr>
+                <td align="center">
+          <![endif]-->
+        <div class="max600 center pl25 pr25 tac" style="padding-right:25px;padding-left:25px;text-align:center;max-width:600px;margin:0 auto;">
+
+          <div class="table w100p">
+            <!--[if (gte mso 9)|(IE)]>
+                <table cellspacing="0" padding="0" border="0" width="100%" role="presentation">
+                  <tr>
+                    <td align="left" width="100" valign="top">
+              <![endif]-->
+            <div class="td tal vat" style="text-align:left;vertical-align:top;width: 100px; display: none;">
+              <p style="margin:0;font-family:'proxima_nova_rgregular', Proxima Nova, Hevletica, Arial, sans-serif;padding:15px 0;color:#105943;mso-margin-top-alt:15px;font-size:16px;line-height:24px;">
+                <img src="http://pages.litmus.com/l/31032/2016-03-10/71wrb2/31032/84683/tweet_white.png" width="15" height="15" class="tweet" style="display:inline-block;border:0px;padding-right:8px;margin-top:5px;float:left;" />
+                <a href="http://pages.litmus.com/e/31032/re-20http3A2F2Fbit-ly2F2AcK5VY/dmfp1w/456279260" target="_blank" class="topline" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;color:#ffffff;font-size:12px;line-height:12px;text-decoration:none;">Tweet</a>
+              </p>
+            </div>
+            <!--[if (gte mso 9)|(IE)]>
+              </td>
+              <td align="center" valign="top">
+              <![endif]-->
+            <div class="td tac" style="text-align:center;mso-margin-top-alt: 20px; mso-margin-bottom-alt: 20px;">
+              <a href="http://pages.litmus.com/e/31032/rce-email-utm-medium-marketing/dmfnz7/456279260" target="_blank" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;">
+                  <img src="http://pages.litmus.com/l/31032/2017-12-11/dm8y8f/31032/135098/brand_guidelines.png" width="300" style="font-size:18px;color:#ffffff;display: block; margin: 0 auto; border: 0px;" alt="for the brand" class="white fsz18"/>
+                    </a>
+            </div>
+            <!--[if (gte mso 9)|(IE)]>
+              </td>
+              <td align="right" width="100" valign="top">
+              <![endif]-->
+            <div class="td tar vat mobile-hide" style="text-align:right;vertical-align:top;width: 100px; display: none;">
+              <div class="fl-r" style="float:right;">
+                <p style="margin:0;font-family:'proxima_nova_rgregular', Proxima Nova, Hevletica, Arial, sans-serif;padding:15px 0;color:#105943;mso-margin-top-alt:15px;font-size:16px;line-height:24px;">
+                  <img src="http://pages.litmus.com/l/31032/2017-04-14/c56f4n/31032/111243/viewonline_white.png" width="15" height="14" class="tweet" style="display:inline-block;border:0px;padding-right:8px;margin-top:5px;float:left;" />
+                  <a href="#" target="_blank" class="topline" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;color:#ffffff;font-size:12px;line-height:12px;text-decoration:none;">View Online</a>
+                </p>
+              </div>
+            </div>
+            <!--[if (gte mso 9)|(IE)]>
+              </td>
+            </tr>
+          </table>
+              <![endif]-->
+          </div>
+          <h1 style="margin:0;font-size:40px;line-height:48px;color:#ffffff;font-weight:bold;display:inline-block;mso-margin-top-alt:20px;font-family:'proxima_nova_rgbold', Proxima Nova, Helvetica, Arial, sans-serif;">Email Brand Guidelines:<br>
+               Why You Need Them</h1>
+          <p style="margin:0;font-family:'proxima_nova_rgregular', Proxima Nova, Hevletica, Arial, sans-serif;padding:15px 0;color:#105943;mso-margin-top-alt:15px;font-size:16px;line-height:24px;color: #4b2207;">Email brand guidelines make creating emails easier and faster. However, only 62% of brands are using them. Here&rsquo;s why you need to add email-specific guidelines to your brand&rsquo;s style guide and what exactly you should include.</p>
+          <!--[if gte mso 12]>
+              <br>
+            <![endif]-->
+          <a href="http://pages.litmus.com/e/31032/rce-email-utm-medium-marketing/dmfnz7/456279260" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;margin-top:20px;font-size:18px;font-family:'proxima_nova_rgbold', Proxima Nova, Helvetica, Arial, sans-serif;font-weight:normal;color:#ffffff;text-decoration:none;border-radius:30px;background-color:#f48539;padding:15px 30px;border:1px solid #f48539;display:inline-block;font-weight:bold;mso-border-alt:8px solid #f48539;mso-padding-alt:0px;background-color: #5098e4; border: 1px solid #5098e4; mso-border-alt: 8px solid #5098e4;"
+            class="cta fsz18" target="_blank">Create emails more easily&nbsp;&rarr;</a>
+        </div>
+        <!--[if (gte mso 9)|(IE)]>
+          </td>
+        </tr>
+      </table>
+          <![endif]-->
+      </div>
+      <!--[if (gte mso 9)|(IE)]>
+        </td>
+      </tr>
+    </table>
+        <![endif]-->
+    </div>
+    <div class="section" style="max-width:1200px;margin:0 auto;background-color:#ffffff;background-color: #fafafa;">
+      <!--[if (gte mso 9)|(IE)]>
+          <table cellspacing="0" padding="0" border="0" width="100%" role="presentation">
+            <tr>
+              <td align="center" bgcolor="#e5ecef" style="padding-top: 75px;">
+                <table cellspacing="0" cellpadding="0" border="0" width="800" align="center" role="presentation">
+                  <tr>
+                    <td align="left" bgcolor="#ffffff" class="pt75 pb50">
+        <![endif]-->
+      <div class="center session" style="margin:0 auto;margin: 0 auto;">
+        <div>
+          <!--[if (gte mso 9)|(IE)]>
+              <table cellspacing="0" cellpadding="0" border="0" width="100%" role="presentation">
+                <tr>
+                  <td width="350" align="center" valign="middle" style="mso-padding-alt: 25px;">
+            <![endif]-->
+          <div class="td w50 vam tac" style="text-align:center;vertical-align:middle;">
+            <a href="http://pages.litmus.com/e/31032/rce-email-utm-medium-marketing/dmfnz9/456279260" target="_blank" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;"><img src="http://pages.litmus.com/l/31032/2017-12-11/dm8y8p/31032/135104/samsung_preview.png" alt="samsung" style="padding-top:25px;padding-bottom:25px;font-size: 24px; color:#888888;" width="200" border="0" class="pt25 pb25"/></a>
+          </div>
+          <!--[if (gte mso 9)|(IE)]>
+            </td>
+            <td width="400" align="left" bgcolor="#ffffff" style="mso-padding-alt: 50px;" valign="middle">
+            <![endif]-->
+          <div class="td w50 vam des-tal pt50 pb50 pl25 pr25 des-pl50 des-pr50 des-pt75 des-pb75" style="padding-right:25px;padding-left:25px;padding-top:50px;padding-bottom:50px;vertical-align:middle;text-align:left;">
+            <h2 style="margin:0;font-family:'proxima_nova_rgbold', Proxima Nova, Helvetica, Arial, sans-serif;font-size:28px;line-height:32px;color:#444444;">New in Litmus Email Previews: Samsung</h2>
+            <p style="margin:0;font-size:16px;line-height:24px;font-family:'proxima_nova_rgregular', Proxima Nova, Hevletica, Arial, sans-serif;padding-top:10px;color: #888888;" class="pt10">
+              Preview your emails in the native email client of the most popular Android device manufacturer&mdash;Samsung.
+              <br>
+              <!--[if gte mso 12]>
+                  <br>
+                <![endif]-->
+              <a href="http://pages.litmus.com/e/31032/rce-email-utm-medium-marketing/dmfnz9/456279260" target="_blank" class="cta tac" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;text-align:center;font-family:'proxima_nova_rgbold', Proxima Nova, Helvetica, Arial, sans-serif;font-weight:normal;color:#ffffff;text-decoration:none;border-radius:30px;padding:15px 30px;display:inline-block;font-weight:bold;mso-padding-alt:0px;margin-top:20px;background-color: #56C2B8; border: 1px solid #56C2B8; mso-border-alt: 8px solid #56C2B8;">How Samsung renders email &rarr;</a>
+            </p>
+          </div>
+          <!--[if (gte mso 9)|(IE)]>
+            </td>
+          </tr>
+        </table>
+            <![endif]-->
+        </div>
+      </div>
+      <!--[if (gte mso 9)|(IE)]>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+        <![endif]-->
+    </div>
+    <div class="section" style="max-width:1200px;margin:0 auto;background-color:#ffffff;">
+      <!--[if (gte mso 9)|(IE)]>
+          <table cellspacing="0" padding="0" border="0" width="100%" role="presentation">
+            <tr>
+              <td align="center" bgcolor="#e5ecef" style="padding-top: 75px;">
+                <table cellspacing="0" cellpadding="0" border="0" width="800" align="center" role="presentation">
+                  <tr>
+                    <td align="left" class="pt75 pb50">
+        <![endif]-->
+      <div class="center" style="margin:0 auto;margin: 0 auto;">
+        <div>
+          <!--[if (gte mso 9)|(IE)]>
+              <table cellspacing="0" cellpadding="0" border="0" width="100%" role="presentation" bgcolor="#ffffff">
+                <tr>
+                  <td width="400" align="left" bgcolor="#ffffff" style="mso-padding-alt: 50px;" valign="middle">
+            <![endif]-->
+          <div class="tfoot w50 vam" style="display:table-footer-group;vertical-align:middle;">
+            <div class="des-tal pt25 pb50 pl25 pr25 des-pl50 des-pr50 des-pt75 des-pb75" style="padding-top:25px;padding-right:25px;padding-left:25px;padding-bottom:50px;text-align:left;background-color: #ffffff;">
+              <h2 style="margin:0;font-family:'proxima_nova_rgbold', Proxima Nova, Helvetica, Arial, sans-serif;font-size:28px;line-height:32px;color:#444444;">
+                  5 Ways Email Analytics Data Can Power Segmentation
+                </h2>
+              <p style="margin:0;font-size:16px;line-height:24px;font-family:'proxima_nova_rgregular', Proxima Nova, Hevletica, Arial, sans-serif;padding-top:10px;color: #888888;" class="pt10">
+                Knowing how your subscribers engage with your email is key for evaluating performance and can be a powerful driver of segmentation and optimization strategies. Discover how Email Analytics data can help you send more targeted campaigns.<br>
+                <!--[if gte mso 12]>
+                    <br>
+                  <![endif]-->
+                <a href="http://pages.litmus.com/e/31032/rce-email-utm-medium-marketing/dmfnzc/456279260" target="_blank" class="cta" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;font-family:'proxima_nova_rgbold', Proxima Nova, Helvetica, Arial, sans-serif;font-weight:normal;color:#ffffff;text-decoration:none;border-radius:30px;padding:15px 30px;display:inline-block;font-weight:bold;mso-padding-alt:0px;margin-top:20px;background-color: #F06D65; border: 1px solid #F06D65; mso-border-alt: 8px solid #F06D65;">Level-up your segmentation &rarr;</a>
+              </p>
+            </div>
+          </div>
+          <!--[if (gte mso 9)|(IE)]>
+            </td>
+            <td width="350" align="left" valign="middle" style="mso-padding-alt: 25px;">
+            <![endif]-->
+          <div class="thead w50 vam tac" style="text-align:center;display:table-header-group;vertical-align:middle;background-color: #ffffff;">
+
+            <div class="pt25 pb25" style="padding-top:25px;padding-bottom:25px;">
+              <a href="http://pages.litmus.com/e/31032/rce-email-utm-medium-marketing/dmfnzc/456279260" target="_blank" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;"><img src="http://pages.litmus.com/l/31032/2017-12-12/dm9xq1/31032/135374/readingenv2.png" alt="data data data" style="font-size:24px; border-radius: 3px; color:#888888; border: 1px solid #eeeeee; border-radius: 3px; box-shadow: 0 1px 2px rgba(0,0,0,.1);" width="300" border="0"/></a>
+            </div>
+          </div>
+          <!--[if (gte mso 9)|(IE)]>
+            </td>
+          </tr>
+        </table>
+            <![endif]-->
+        </div>
+      </div>
+      <!--[if (gte mso 9)|(IE)]>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+        <![endif]-->
+    </div>
+    <div class="section" style="max-width:1200px;margin:0 auto;background-color:#ffffff;background-color: #fafafa;">
+      <!--[if (gte mso 9)|(IE)]>
+          <table cellspacing="0" padding="0" border="0" width="100%" role="presentation">
+            <tr>
+              <td align="center" bgcolor="#e5ecef" style="padding-top: 75px; padding-bottom: 75px;">
+                <table cellspacing="0" cellpadding="0" border="0" width="800" align="center" role="presentation">
+                  <tr>
+                    <td align="left" class="pt75">
+        <![endif]-->
+      <div class="center session" style="margin:0 auto;margin: 0 auto;">
+        <div>
+          <!--[if (gte mso 9)|(IE)]>
+              <table cellspacing="0" cellpadding="0" border="0" width="100%" role="presentation" bgcolor="#9E81B6">
+                <tr>
+                  <td width="350" align="center" valign="middle">
+            <![endif]-->
+          <div class="thead w50 vam tac" style="text-align:center;display:table-header-group;vertical-align:middle;background-color: #9E81B6;">
+
+            <a href="http://pages.litmus.com/e/31032/rce-email-utm-medium-marketing/dmfnzf/456279260" target="_blank" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;"><img src="http://pages.litmus.com/l/31032/2017-12-11/dm8y8h/31032/135100/hotspots2.png" alt="where in the world is email hot..." style="font-size:24px;color:#ffffff;display: block; margin: 0 auto;" width="300" border="0" class="white fsz24 img-max"/></a>
+          </div>
+          <!--[if (gte mso 9)|(IE)]>
+            </td>
+            <td width="400" align="left" bgcolor="#ffffff" style="mso-padding-alt: 50px;" valign="middle">
+            <![endif]-->
+          <div class="tfoot w50 vam" style="display:table-footer-group;vertical-align:middle;">
+            <div class="pt50 pb50 pl25 pr25 des-tal des-pt75 des-pb75 des-pl50 des-pr50" style="padding-right:25px;padding-left:25px;padding-top:50px;padding-bottom:50px;text-align:left;">
+              <h2 style="margin:0;font-family:'proxima_nova_rgbold', Proxima Nova, Helvetica, Arial, sans-serif;font-size:28px;line-height:32px;color:#444444;">
+                  Hotspots for Email Marketing Jobs + Skills
+                </h2>
+              <p style="margin:0;font-size:16px;line-height:24px;font-family:'proxima_nova_rgregular', Proxima Nova, Hevletica, Arial, sans-serif;padding-top:10px;color: #888888;" class="pt10">
+                See where the email marketing job hotspots are, based on postings on the Litmus Community Job Board over the past year. Plus, learn which email marketing skills are in demand.
+                <br>
+                <!--[if gte mso 12]>
+                    <br>
+                  <![endif]-->
+                <a href="http://pages.litmus.com/e/31032/rce-email-utm-medium-marketing/dmfnzf/456279260" target="_blank" class="cta white" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;font-family:'proxima_nova_rgbold', Proxima Nova, Helvetica, Arial, sans-serif;font-weight:normal;text-decoration:none;border-radius:30px;padding:15px 30px;display:inline-block;font-weight:bold;mso-padding-alt:0px;margin-top:20px;color:#ffffff;background-color: #F2B25C; border: 1px solid #F2B25C; mso-border-alt: 8px solid #F2B25C;">Get your hot jobs &rarr;</a>
+              </p>
+            </div>
+          </div>
+          <!--[if (gte mso 9)|(IE)]>
+            </td>
+          </tr>
+        </table>
+            <![endif]-->
+        </div>
+      </div>
+      <!--[if (gte mso 9)|(IE)]>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+        <![endif]-->
+    </div>
+    <div class="section" style="max-width:1200px;margin:0 auto;background-color:#ffffff;">
+      <!--[if (gte mso 9)|(IE)]>
+          <table cellspacing="0" padding="0" border="0" width="100%" role="presentation">
+            <tr>
+              <td align="center" bgcolor="#e5ecef" style="padding-bottom: 75px;">
+                <table cellspacing="0" cellpadding="0" border="0" width="800" align="center" role="presentation">
+                  <tr>
+                    <td align="left" bgcolor="#ffffff" class="pt75 pb50">
+        <![endif]-->
+      <div class="center session" style="margin:0 auto;margin: 0 auto;">
+        <div>
+          <!--[if (gte mso 9)|(IE)]>
+              <table cellspacing="0" cellpadding="0" border="0" width="100%" role="presentation">
+                <tr>
+                  <td width="400" align="center" valign="middle" style="mso-padding-alt: 25px;">
+            <![endif]-->
+          <div class="tfoot w50 vam" style="display:table-footer-group;vertical-align:middle;">
+            <div class="des-tal pt50 pb50 pl25 pr25 des-pl50 des-pr50 des-pt75 des-pb75" style="padding-right:25px;padding-left:25px;padding-top:50px;padding-bottom:50px;text-align:left;">
+              <h2 style="margin:0;font-family:'proxima_nova_rgbold', Proxima Nova, Helvetica, Arial, sans-serif;font-size:28px;line-height:32px;color:#444444;">How Marketers Go from Inspiration to Email Design to Landing Page</h2>
+              <p style="margin:0;font-size:16px;line-height:24px;font-family:'proxima_nova_rgregular', Proxima Nova, Hevletica, Arial, sans-serif;padding-top:10px;color: #888888;" class="pt10">
+                Email creative is unlike web or print creative. It has its own unique constraints and opportunities that marketers must master to make the most of the channel.
+                <br>
+                <br> The 2017 State of Email Creative Report examines every facet of email design&mdash;from finding inspiration and creating email brand guidelines to the email design elements used and redesign schedules.
+                <br>
+                <!--[if gte mso 12]>
+                    <br>
+                  <![endif]-->
+                <a href="http://pages.litmus.com/e/31032/rce-email-utm-medium-marketing/dmfnzh/456279260" target="_blank" class="cta" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;font-family:'proxima_nova_rgbold', Proxima Nova, Helvetica, Arial, sans-serif;font-weight:normal;color:#ffffff;text-decoration:none;border-radius:30px;padding:15px 30px;display:inline-block;font-weight:bold;mso-padding-alt:0px;margin-top:20px;background-color: #9E81B6; border: 1px solid #9E81B6; mso-border-alt: 8px solid #9E81B6;">Download your report &rarr;</a>
+              </p>
+            </div>
+          </div>
+          <!--[if (gte mso 9)|(IE)]>
+            </td>
+            <td width="350" align="left" bgcolor="#444444" style="mso-padding-alt: 25px;" valign="middle">
+            <![endif]-->
+          <div class="thead w50 pl25 pr25 vam tac" style="padding-right:25px;padding-left:25px;text-align:center;display:table-header-group;vertical-align:middle;background-color: #444444;">
+            <a href="http://pages.litmus.com/e/31032/rce-email-utm-medium-marketing/dmfnzh/456279260" target="_blank" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;"><img src="http://pages.litmus.com/l/31032/2017-11-22/dhgclb/31032/133023/soecreative2017header2.png" alt="fancy report" style="padding-top:25px;color:#ffffff;font-size: 24px;" width="350" border="0" class="white img-max pt25"/></a>
+          </div>
+          <!--[if (gte mso 9)|(IE)]>
+            </td>
+          </tr>
+        </table>
+            <![endif]-->
+        </div>
+      </div>
+      <!--[if (gte mso 9)|(IE)]>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+        <![endif]-->
+    </div>
+    <div class="section pt50 pb50 des-pt50 des-pb75" style="padding-top:50px;padding-bottom:50px;max-width:1200px;margin:0 auto;background-color:#ffffff;background-color: #f3b35c;">
+      <!--[if (gte mso 9)|(IE)]>
+          <table cellspacing="0" padding="0" border="0" width="100%" role="presentation">
+            <tr>
+              <td align="center" bgcolor="#f3b35c" style="mso-padding-top-alt: 75px; mso-padding-bottom-alt: 75px;">
+                <table cellspacing="0" padding="0" border="0" width="800" role="presentation">
+                  <tr>
+                    <td align="center">
+        <![endif]-->
+      <div class="max600 center pl25 pr25" style="padding-right:25px;padding-left:25px;max-width:600px;margin:0 auto;max-width: 800px; margin: 0 auto;">
+        <div class="session tac" style="text-align:center;">
+          <!--[if (gte mso 9)|(IE)]>
+              <table cellspacing="0" cellpadding="0" border="0" width="100%" role="presentation">
+                <tr>
+                  <td align="center" valign="top">
+            <![endif]-->
+          <a href="http://pages.litmus.com/e/31032/2017-12-13/dmfp1y/456279260" target="_blank" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;"><img src="http://pages.litmus.com/l/31032/2017-02-09/bqvf44/31032/107351/podcast_icon2.png" width="225" height="218" alt="music to your emails" style="margin:0 auto;display: block; border: 0px;" class="center"/></a>
+          <!--[if gte mso 12]>
+              <br>
+              <br>
+            <![endif]-->
+          <h2 class="pt15" style="margin:0;font-family:'proxima_nova_rgbold', Proxima Nova, Helvetica, Arial, sans-serif;font-size:28px;line-height:32px;color:#444444;padding-top:15px;color: #ffffff;">
+              Your Email Design Podcast Favorites
+            </h2>
+          <p class="pt10 pb25" style="margin:0;font-size:16px;line-height:24px;font-family:'proxima_nova_rgregular', Proxima Nova, Hevletica, Arial, sans-serif;padding-top:10px;padding-bottom:25px;color: #8f580d;">
+            The episodes you just couldn&rsquo;t get enough of in 2017. Revisit your favorite episodes.
+          </p>
+          <div class="table 100p">
+            <!--[if gte mso 12]>
+                <br>
+              <![endif]-->
+            <div class="td pt25 pb25 pl25 pr25 podcast" style="padding-top:25px;padding-bottom:25px;padding-right:25px;padding-left:25px;background-color:#ffffff;background:#ffffff url('http://pages.litmus.com/l/31032/2017-02-09/bqvf46/31032/107353/soundwaves1.png') left bottom -30px repeat-x;border-radius:3px;">
+              <!--[if (gte mso 9)|(IE)]>
+                  <table cellspacing="0" cellpadding="0" border="0" width="100%" role="presentation" bgcolor="#ffffff" style="mso-padding-alt: 25px;">
+                    <tr>
+                      <td width="50" align="left" valign="middle">
+                <![endif]-->
+              <div class="vam" style="vertical-align:middle;display: table-cell;">
+                <a href="http://pages.litmus.com/e/31032/rce-email-utm-medium-marketing/dmfnzk/456279260" target="_blank" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;"><img src="http://pages.litmus.com/l/31032/2015-12-04/5j9h1x/31032/77631/podcast_play.png" width="50" height="50" style="display: block; border: 0px;"/></a>
+              </div>
+              <!--[if (gte mso 9)|(IE)]>
+                </td>
+                <td align="left" valign="middle" class="pt20">
+                <![endif]-->
+              <div class="pl25 vat tal" style="padding-left:25px;text-align:left;vertical-align:top;display: table-cell;">
+                <p style="margin:0;font-size:16px;line-height:24px;font-family:'proxima_nova_rgregular', Proxima Nova, Hevletica, Arial, sans-serif;">
+                  <a href="http://pages.litmus.com/e/31032/rce-email-utm-medium-marketing/dmfnzk/456279260" target="_blank" class="fsz18 lh24 tal link" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;color:#0088cc;text-decoration:underline;font-size:18px;line-height:24px;text-align:left;">An Inside Look at Hillary Clinton Campaign&rsquo;s Email Marketing Strategy with Amanda Litman</a>
+                </p>
+              </div>
+              <!--[if (gte mso 9)|(IE)]>
+                </td>
+              </tr>
+            </table>
+                <![endif]-->
+            </div>
+          </div>
+          <div class="table 100p pt15 gmail-pt15" style="padding-top:15px;">
+            <!--[if gte mso 12]>
+                <br>
+              <![endif]-->
+            <div class="td pt25 pb25 pl25 pr25 podcast" style="padding-top:25px;padding-bottom:25px;padding-right:25px;padding-left:25px;background-color:#ffffff;background:#ffffff url('http://pages.litmus.com/l/31032/2017-02-09/bqvf46/31032/107353/soundwaves1.png') left bottom -30px repeat-x;border-radius:3px;">
+              <!--[if (gte mso 9)|(IE)]>
+                  <table cellspacing="0" cellpadding="0" border="0" width="100%" role="presentation" bgcolor="#ffffff" style="mso-padding-alt: 25px;">
+                    <tr>
+                      <td width="50" align="left" valign="middle">
+                <![endif]-->
+              <div class="vam" style="vertical-align:middle;display: table-cell;">
+                <a href="http://pages.litmus.com/e/31032/rce-email-utm-medium-marketing/dmfnzm/456279260" target="_blank" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;"><img src="http://pages.litmus.com/l/31032/2015-12-04/5j9h1x/31032/77631/podcast_play.png" width="50" height="50" style="display: block; border: 0px;"/></a>
+              </div>
+              <!--[if (gte mso 9)|(IE)]>
+                </td>
+                <td align="left" valign="middle" class="pt20">
+                <![endif]-->
+              <div class="pl25 vam tal" style="padding-left:25px;text-align:left;vertical-align:middle;display: table-cell;">
+                <p style="margin:0;font-size:16px;line-height:24px;font-family:'proxima_nova_rgregular', Proxima Nova, Hevletica, Arial, sans-serif;">
+                  <a href="http://pages.litmus.com/e/31032/rce-email-utm-medium-marketing/dmfnzm/456279260" target="_blank" class="fsz18 lh24 link" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;color:#0088cc;text-decoration:underline;font-size:18px;line-height:24px;">CSS Grid Support Comes to Email and Gmail App Launches Payments</a>
+                </p>
+              </div>
+              <!--[if (gte mso 9)|(IE)]>
+                </td>
+              </tr>
+            </table>
+                <![endif]-->
+            </div>
+          </div>
+          <div class="table 100p pt15 gmail-pt15" style="padding-top:15px;">
+            <!--[if gte mso 12]>
+                <br>
+              <![endif]-->
+            <div class="td pt25 pb25 pl25 pr25 podcast" style="padding-top:25px;padding-bottom:25px;padding-right:25px;padding-left:25px;background-color:#ffffff;background:#ffffff url('http://pages.litmus.com/l/31032/2017-02-09/bqvf46/31032/107353/soundwaves1.png') left bottom -30px repeat-x;border-radius:3px;">
+              <!--[if (gte mso 9)|(IE)]>
+                  <table cellspacing="0" cellpadding="0" border="0" width="100%" role="presentation" bgcolor="#ffffff" style="mso-padding-alt: 25px;">
+                    <tr>
+                      <td width="50" lign="left" valign="middle">
+                <![endif]-->
+              <div class="vam" style="vertical-align:middle;display: table-cell;">
+                <a href="http://pages.litmus.com/e/31032/rce-email-utm-medium-marketing/dmfnzp/456279260" target="_blank" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;"><img src="http://pages.litmus.com/l/31032/2015-12-04/5j9h1x/31032/77631/podcast_play.png" width="50" height="50" style="display: block; border: 0px;"/></a>
+              </div>
+              <!--[if (gte mso 9)|(IE)]>
+                </td>
+                <td align="right" valign="middle" class="pt20">
+                <![endif]-->
+              <div class="pl25 vam tal" style="padding-left:25px;text-align:left;vertical-align:middle;display: table-cell;">
+                <p style="margin:0;font-size:16px;line-height:24px;font-family:'proxima_nova_rgregular', Proxima Nova, Hevletica, Arial, sans-serif;">
+                  <a href="http://pages.litmus.com/e/31032/rce-email-utm-medium-marketing/dmfnzp/456279260" target="_blank" class="fsz18 lh24 link" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;color:#0088cc;text-decoration:underline;font-size:18px;line-height:24px;">How CodePen Approaches Email Design and Marketing with Chris Coyier</a>
+                </p>
+              </div>
+              <!--[if (gte mso 9)|(IE)]>
+                </td>
+              </tr>
+            </table>
+                <![endif]-->
+            </div>
+          </div>
+          <div class="table 100p pt15 gmail-pt15" style="padding-top:15px;">
+            <!--[if gte mso 12]>
+                <br>
+              <![endif]-->
+            <div class="td pt25 pb25 pl25 pr25 podcast" style="padding-top:25px;padding-bottom:25px;padding-right:25px;padding-left:25px;background-color:#ffffff;background:#ffffff url('http://pages.litmus.com/l/31032/2017-02-09/bqvf46/31032/107353/soundwaves1.png') left bottom -30px repeat-x;border-radius:3px;">
+              <!--[if (gte mso 9)|(IE)]>
+                  <table cellspacing="0" cellpadding="0" border="0" width="100%" role="presentation" bgcolor="#ffffff" style="mso-padding-alt: 25px;">
+                    <tr>
+                      <td width="50" lign="left" valign="middle">
+                <![endif]-->
+              <div class="vam" style="vertical-align:middle;display: table-cell;">
+                <a href="http://pages.litmus.com/e/31032/rce-email-utm-medium-marketing/dmfnzr/456279260" target="_blank" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;"><img src="http://pages.litmus.com/l/31032/2015-12-04/5j9h1x/31032/77631/podcast_play.png" width="50" height="50" style="display: block; border: 0px;"/></a>
+              </div>
+              <!--[if (gte mso 9)|(IE)]>
+                </td>
+                <td align="right" valign="middle" class="pt20">
+                <![endif]-->
+              <div class="pl25 vam tal" style="padding-left:25px;text-align:left;vertical-align:middle;display: table-cell;">
+                <p style="margin:0;font-size:16px;line-height:24px;font-family:'proxima_nova_rgregular', Proxima Nova, Hevletica, Arial, sans-serif;">
+                  <a href="http://pages.litmus.com/e/31032/rce-email-utm-medium-marketing/dmfnzr/456279260" target="_blank" class="fsz18 link" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;color:#0088cc;text-decoration:underline;font-size:18px;">Should we stop inlining CSS or using table-based layouts?</a>
+                </p>
+              </div>
+              <!--[if (gte mso 9)|(IE)]>
+                </td>
+              </tr>
+            </table>
+                <![endif]-->
+            </div>
+          </div>
+          <div class="table 100p pt15 gmail-pt15" style="padding-top:15px;">
+            <!--[if gte mso 12]>
+                <br>
+              <![endif]-->
+            <div class="td pt25 pb25 pl25 pr25 podcast" style="padding-top:25px;padding-bottom:25px;padding-right:25px;padding-left:25px;background-color:#ffffff;background:#ffffff url('http://pages.litmus.com/l/31032/2017-02-09/bqvf46/31032/107353/soundwaves1.png') left bottom -30px repeat-x;border-radius:3px;">
+              <!--[if (gte mso 9)|(IE)]>
+                  <table cellspacing="0" cellpadding="0" border="0" width="100%" role="presentation" bgcolor="#ffffff" style="mso-padding-alt: 25px;">
+                    <tr>
+                      <td width="50" align="left" valign="middle">
+                <![endif]-->
+              <div class="vam" style="vertical-align:middle;display: table-cell;">
+                <a href="http://pages.litmus.com/e/31032/rce-email-utm-medium-marketing/dmfnzt/456279260" target="_blank" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;"><img src="http://pages.litmus.com/l/31032/2015-12-04/5j9h1x/31032/77631/podcast_play.png" width="50" height="50" style="display: block; border: 0px;"/></a>
+              </div>
+              <!--[if (gte mso 9)|(IE)]>
+                </td>
+                <td align="right" valign="middle" class="pt20">
+                <![endif]-->
+              <div class="pl25 vam tal" style="padding-left:25px;text-align:left;vertical-align:middle;display: table-cell;">
+                <p style="margin:0;font-size:16px;line-height:24px;font-family:'proxima_nova_rgregular', Proxima Nova, Hevletica, Arial, sans-serif;">
+                  <a href="http://pages.litmus.com/e/31032/rce-email-utm-medium-marketing/dmfnzt/456279260" target="_blank" class="fsz18 lh24 link" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;color:#0088cc;text-decoration:underline;font-size:18px;line-height:24px;">A Truly Table-less Email Layout and Litmus Launches A Chrome Extension</a>
+                </p>
+              </div>
+              <!--[if (gte mso 9)|(IE)]>
+                </td>
+              </tr>
+            </table>
+                <![endif]-->
+            </div>
+          </div>
+          <!--[if (gte mso 9)|(IE)]>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" style="mso-padding-top-alt: 50px;">
+            <![endif]-->
+          <p class="pt50 pb25" style="margin:0;font-size:16px;line-height:24px;font-family:'proxima_nova_rgregular', Proxima Nova, Hevletica, Arial, sans-serif;padding-bottom:25px;padding-top:50px;color: #8f580d;">
+            Subscribe to the #EmailDesignPodcast
+          </p>
+          <div class="tac vam" style="text-align:center;vertical-align:middle;">
+            <!--[if (gte mso 9)|(IE)]>
+                <table cellspacing="0" cellpadding="0" border="0" width="500" role="presentation" style="mso-padding-alt: 25px;" align="center">
+                  <tr>
+                    <td align="center" valign="top">
+              <![endif]-->
+            <a href="http://pages.litmus.com/e/31032/cITFC7iyh9D4DtBAnWowjyPBKN4vmF/dmfnzw/456279260" target="_blank" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;">
+              <div class="owa-link">
+                <img src="http://pages.litmus.com/l/31032/2017-02-09/bqvf48/31032/107355/YouTube_logo_dark1.png" width="100" height="57" alt="youtube" style="margin:0 auto;display:inline-block;border:0px;" class="center podcast-hover" />
+              </div>
+            </a>
+            &nbsp; &nbsp; &nbsp;
+            <!--[if (gte mso 9)|(IE)]>
+              </td>
+              <td align="center">
+              <![endif]-->
+            <a href="http://pages.litmus.com/e/31032/email-design-podcast/dmfnzy/456279260" target="_blank" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;">
+              <div class="owa-link">
+                <img src="http://pages.litmus.com/l/31032/2017-02-09/bqvf4b/31032/107357/soundcloud_logo.png" width="100" height="57" style="margin:0 auto;vertical-align:top;display:inline-block;border:0px;" alt="soundcloud" class="center podcast-hover vat" />
+              </div>
+            </a>
+            &nbsp; &nbsp; &nbsp;
+            <!--[if (gte mso 9)|(IE)]>
+              </td>
+              <td align="center">
+              <![endif]-->
+            <a href="http://pages.litmus.com/e/31032/ail-design-podcast-id904262438/dmfp11/456279260" target="_blank" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;">
+              <div class="owa-link">
+                <img src="http://pages.litmus.com/l/31032/2017-02-09/bqvf4d/31032/107359/itunes_logo.png" width="150" height="45" alt="itunes" style="padding-top:5px;margin:0 auto;vertical-align:top;display:inline-block;border:0px;" class="center podcast-hover vat pt5"
+                /></div>
+            </a>
+            <!--[if (gte mso 9)|(IE)]>
+              </td>
+            </tr>
+          </table>
+              <![endif]-->
+          </div>
+          <!--[if (gte mso 9)|(IE)]>
+            </td>
+          </tr>
+        </table>
+            <![endif]-->
+        </div>
+        <!--[if (gte mso 9)|(IE)]>
+          </td>
+        </tr>
+      </table>
+          <![endif]-->
+      </div>
+      <!--[if (gte mso 9)|(IE)]>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+        <![endif]-->
+    </div>
+    <div class="section pt50 pb50 des-pt50 des-pb75" style="padding-top:50px;padding-bottom:50px;max-width:1200px;margin:0 auto;background-color:#ffffff;background-color: #54c1e3;">
+      <!--[if (gte mso 9)|(IE)]>
+          <table cellspacing="0" padding="0" border="0" width="100%" role="presentation">
+            <tr>
+              <td align="center" bgcolor="#54c1e3" style="mso-padding-top-alt: 75px; mso-padding-bottom-alt: 75px;">
+                <table cellspacing="0" padding="0" border="0" width="800" role="presentation">
+                  <tr>
+                    <td align="center">
+        <![endif]-->
+      <div class="max600 center pl25 pr25" style="padding-right:25px;padding-left:25px;max-width:600px;margin:0 auto;max-width: 800px; margin: 0 auto;">
+        <div class="session tac" style="text-align:center;">
+          <!--[if (gte mso 9)|(IE)]>
+              <table cellspacing="0" cellpadding="0" border="0" width="100%" role="presentation">
+                <tr>
+                  <td align="center" valign="top">
+            <![endif]-->
+          <a href="http://pages.litmus.com/e/31032/rce-email-utm-medium-marketing/dmfp21/456279260" target="_blank" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;">
+              <img src="http://pages.litmus.com/l/31032/2017-12-11/dm8y8c/31032/135096/top_10.png" alt="top 10" width="200" border="0" style="font-size:18px;margin:0 auto;color:#ffffff;display: block; border: 0px;" class="center img-max2 white fsz18"/>
+            </a>
+          <!--[if gte mso 12]>
+              <br>
+              <br>
+            <![endif]-->
+          <h2 class="pt25" style="margin:0;font-family:'proxima_nova_rgbold', Proxima Nova, Helvetica, Arial, sans-serif;font-size:28px;line-height:32px;color:#444444;padding-top:25px;mso-padding-top-alt: 25px; mso-padding-bottom-alt: 25px; color: #ffffff;">
+              The Best of Litmus 2017
+            </h2>
+          <p class="pt10 pb25" style="margin:0;font-size:16px;line-height:24px;font-family:'proxima_nova_rgregular', Proxima Nova, Hevletica, Arial, sans-serif;padding-top:10px;padding-bottom:25px;color: #083543;">
+            From email rendering in Android to subject line mistakes, take a look back at some of the most popular blog posts and Community discussions from 2017:
+          </p>
+          <div class="table 100p">
+            <!--[if gte mso 12]>
+                <br>
+                <br>
+              <![endif]-->
+            <div class="td pt15 pb15 pl25 pr25" style="padding-top:15px;padding-bottom:15px;padding-right:25px;padding-left:25px;background-color: #ffffff; border-radius: 3px;">
+              <!--[if (gte mso 9)|(IE)]>
+                  <table cellspacing="0" cellpadding="0" border="0" width="100%" role="presentation" bgcolor="#ffffff" style="mso-padding-alt: 25px;">
+                    <tr>
+                      <td width="50" align="left" valign="middle">
+                <![endif]-->
+              <div class="vam" style="vertical-align:middle;display: table-cell;">
+                <a href="http://pages.litmus.com/e/31032/rce-email-utm-medium-marketing/dmfp13/456279260" target="_blank" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;"><img src="http://pages.litmus.com/l/31032/2017-02-10/bqvmp2/31032/107381/sendyy.png" width="50" height="50" style="display: block; border: 0px;"/></a>
+              </div>
+              <!--[if (gte mso 9)|(IE)]>
+                </td>
+                <td align="left" valign="middle" class="pt20">
+                <![endif]-->
+              <div class="pl25 vam tal" style="padding-left:25px;text-align:left;vertical-align:middle;display: table-cell;">
+                <p class="pt5 lh24 fsz18" style="margin:0;font-size:16px;font-family:'proxima_nova_rgregular', Proxima Nova, Hevletica, Arial, sans-serif;padding-top:5px;font-size:18px;line-height:24px;">
+                  <a href="http://pages.litmus.com/e/31032/rce-email-utm-medium-marketing/dmfp13/456279260" target="_blank" class="link" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;color:#0088cc;text-decoration:underline;">Why is email rendering so complex?</a>
+                </p>
+              </div>
+              <!--[if (gte mso 9)|(IE)]>
+                </td>
+              </tr>
+            </table>
+                <![endif]-->
+            </div>
+          </div>
+          <div class="table 100p pt15 gmail-pt15" style="padding-top:15px;">
+            <!--[if gte mso 12]>
+                <br>
+                <br>
+              <![endif]-->
+            <div class="td pt25 pb25 pl25 pr25" style="padding-top:25px;padding-bottom:25px;padding-right:25px;padding-left:25px;background-color: #ffffff; border-radius: 3px;">
+              <!--[if (gte mso 9)|(IE)]>
+                  <table cellspacing="0" cellpadding="0" border="0" width="100%" role="presentation" bgcolor="#ffffff" style="mso-padding-alt: 25px;">
+                    <tr>
+                      <td width="50" align="left" valign="middle">
+                <![endif]-->
+              <div class="vam" style="vertical-align:middle;display: table-cell;">
+                <a href="http://pages.litmus.com/e/31032/rce-email-utm-medium-marketing/dmfp15/456279260" target="_blank" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;"><img src="http://pages.litmus.com/l/31032/2017-02-10/bqvmpb/31032/107385/love_letter2.png" width="50" height="50" style="display: block; border: 0px;"/></a>
+              </div>
+              <!--[if (gte mso 9)|(IE)]>
+                </td>
+                <td align="left" valign="middle" class="pt20">
+                <![endif]-->
+              <div class="pl25 vam tal" style="padding-left:25px;text-align:left;vertical-align:middle;display: table-cell;">
+                <p class="pt5 lh24 fsz18" style="margin:0;font-size:16px;font-family:'proxima_nova_rgregular', Proxima Nova, Hevletica, Arial, sans-serif;padding-top:5px;font-size:18px;line-height:24px;">
+                  <a href="http://pages.litmus.com/e/31032/rce-email-utm-medium-marketing/dmfp15/456279260" target="_blank" class="link" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;color:#0088cc;text-decoration:underline;">Windows 10 Mail: VML Background Image Solution</a>
+                </p>
+              </div>
+              <!--[if (gte mso 9)|(IE)]>
+                </td>
+              </tr>
+            </table>
+                <![endif]-->
+            </div>
+          </div>
+          <div class="table 100p pt15 gmail-pt15" style="padding-top:15px;">
+            <!--[if gte mso 12]>
+                <br>
+                <br>
+              <![endif]-->
+            <div class="td pt25 pb25 pl25 pr25" style="padding-top:25px;padding-bottom:25px;padding-right:25px;padding-left:25px;background-color: #ffffff; border-radius: 3px;">
+              <!--[if (gte mso 9)|(IE)]>
+                  <table cellspacing="0" cellpadding="0" border="0" width="100%" role="presentation" bgcolor="#ffffff" style="mso-padding-alt: 25px;">
+                    <tr>
+                      <td width="50" align="left" valign="middle">
+                <![endif]-->
+              <div class="vam" style="vertical-align:middle;display: table-cell;">
+                <a href="http://pages.litmus.com/e/31032/rce-email-utm-medium-marketing/dmfp17/456279260" target="_blank" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;"><img src="http://pages.litmus.com/l/31032/2017-02-10/bqvmp2/31032/107381/sendyy.png" width="50" height="50" style="display: block; border: 0px;"/></a>
+              </div>
+              <!--[if (gte mso 9)|(IE)]>
+                </td>
+                <td align="left" valign="middle" class="pt20">
+                <![endif]-->
+              <div class="pl25 vam tal" style="padding-left:25px;text-align:left;vertical-align:middle;display: table-cell;">
+                <p class="pt5 lh24 fsz18" style="margin:0;font-size:16px;font-family:'proxima_nova_rgregular', Proxima Nova, Hevletica, Arial, sans-serif;padding-top:5px;font-size:18px;line-height:24px;">
+                  <a href="http://pages.litmus.com/e/31032/rce-email-utm-medium-marketing/dmfp17/456279260" target="_blank" class="link" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;color:#0088cc;text-decoration:underline;">How to Build an Interactive Quiz in an Email</a>
+                </p>
+              </div>
+              <!--[if (gte mso 9)|(IE)]>
+                </td>
+              </tr>
+            </table>
+                <![endif]-->
+            </div>
+          </div>
+          <div class="table 100p pt15 gmail-pt15" style="padding-top:15px;">
+            <!--[if gte mso 12]>
+                <br>
+                <br>
+              <![endif]-->
+            <div class="td pt25 pb25 pl25 pr25" style="padding-top:25px;padding-bottom:25px;padding-right:25px;padding-left:25px;background-color: #ffffff; border-radius: 3px;">
+              <!--[if (gte mso 9)|(IE)]>
+                  <table cellspacing="0" cellpadding="0" border="0" width="100%" role="presentation" bgcolor="#ffffff" style="mso-padding-alt: 25px;">
+                    <tr>
+                      <td width="50" align="left" valign="middle">
+                <![endif]-->
+              <div class="vam" style="vertical-align:middle;display: table-cell;">
+                <a href="http://pages.litmus.com/e/31032/rce-email-utm-medium-marketing/dmfp19/456279260" target="_blank" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;"><img src="http://pages.litmus.com/l/31032/2017-02-10/bqvmpb/31032/107385/love_letter2.png" width="50" height="50" style="display: block; border: 0px;"/></a>
+              </div>
+              <!--[if (gte mso 9)|(IE)]>
+                </td>
+                <td align="left" valign="middle" class="pt20">
+                <![endif]-->
+              <div class="pl25 vam tal" style="padding-left:25px;text-align:left;vertical-align:middle;display: table-cell;">
+                <p class="pt5 lh24 fsz18" style="margin:0;font-size:16px;font-family:'proxima_nova_rgregular', Proxima Nova, Hevletica, Arial, sans-serif;padding-top:5px;font-size:18px;line-height:24px;">
+                  <a href="http://pages.litmus.com/e/31032/rce-email-utm-medium-marketing/dmfp19/456279260" target="_blank" class="link" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;color:#0088cc;text-decoration:underline;">Is a &ldquo;view this email as a web page&rdquo; link necessary in emails that display properly?</a>
+                </p>
+              </div>
+              <!--[if (gte mso 9)|(IE)]>
+                </td>
+              </tr>
+            </table>
+                <![endif]-->
+            </div>
+          </div>
+          <div class="table 100p pt15 gmail-pt15" style="padding-top:15px;">
+            <!--[if gte mso 12]>
+                <br>
+                <br>
+              <![endif]-->
+            <div class="td pt25 pb25 pl25 pr25" style="padding-top:25px;padding-bottom:25px;padding-right:25px;padding-left:25px;background-color: #ffffff; border-radius: 3px;">
+              <!--[if (gte mso 9)|(IE)]>
+                  <table cellspacing="0" cellpadding="0" border="0" width="100%" role="presentation" bgcolor="#ffffff" style="mso-padding-alt: 25px;">
+                    <tr>
+                      <td width="50" align="left" valign="middle">
+                <![endif]-->
+              <div class="vam" style="vertical-align:middle;display: table-cell;">
+                <a href="http://pages.litmus.com/e/31032/rce-email-utm-medium-marketing/dmfp1c/456279260" target="_blank" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;"><img src="http://pages.litmus.com/l/31032/2017-02-10/bqvmp2/31032/107381/sendyy.png" width="50" height="50" style="display: block; border: 0px;"/></a>
+              </div>
+              <!--[if (gte mso 9)|(IE)]>
+                </td>
+                <td align="left" valign="middle" class="pt20">
+                <![endif]-->
+              <div class="pl25 vam tal" style="padding-left:25px;text-align:left;vertical-align:middle;display: table-cell;">
+                <p class="pt5 lh24 fsz18" style="margin:0;font-size:16px;font-family:'proxima_nova_rgregular', Proxima Nova, Hevletica, Arial, sans-serif;padding-top:5px;font-size:18px;line-height:24px;">
+                  <a href="http://pages.litmus.com/e/31032/rce-email-utm-medium-marketing/dmfp1c/456279260" target="_blank" class="link" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;color:#0088cc;text-decoration:underline;">3 Embarrassing Subject Line Mistakes to Avoid</a>
+                </p>
+              </div>
+              <!--[if (gte mso 9)|(IE)]>
+                </td>
+              </tr>
+            </table>
+                <![endif]-->
+            </div>
+          </div>
+          <div class="table 100p pt15 gmail-pt15" style="padding-top:15px;">
+            <!--[if gte mso 12]>
+                <br>
+                <br>
+              <![endif]-->
+            <div class="td pt25 pb25 pl25 pr25" style="padding-top:25px;padding-bottom:25px;padding-right:25px;padding-left:25px;background-color: #ffffff; border-radius: 3px;">
+              <!--[if (gte mso 9)|(IE)]>
+                  <table cellspacing="0" cellpadding="0" border="0" width="100%" role="presentation" bgcolor="#ffffff" style="mso-padding-alt: 25px;">
+                    <tr>
+                      <td width="50" align="left" valign="middle">
+                <![endif]-->
+              <div class="vam" style="vertical-align:middle;display: table-cell;">
+                <a href="http://pages.litmus.com/e/31032/rce-email-utm-medium-marketing/dmfp1f/456279260" target="_blank" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;"><img src="http://pages.litmus.com/l/31032/2017-02-10/bqvmpb/31032/107385/love_letter2.png" width="50" height="50" style="display: block; border: 0px;"/></a>
+              </div>
+              <!--[if (gte mso 9)|(IE)]>
+                </td>
+                <td align="left" valign="middle" class="pt20">
+                <![endif]-->
+              <div class="pl25 vam tal" style="padding-left:25px;text-align:left;vertical-align:middle;display: table-cell;">
+                <p class="pt5 lh24 fsz18" style="margin:0;font-size:16px;font-family:'proxima_nova_rgregular', Proxima Nova, Hevletica, Arial, sans-serif;padding-top:5px;font-size:18px;line-height:24px;">
+                  <a href="http://pages.litmus.com/e/31032/rce-email-utm-medium-marketing/dmfp1f/456279260" target="_blank" class="link" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;color:#0088cc;text-decoration:underline;">Creating an Accessible Email</a>
+                </p>
+              </div>
+              <!--[if (gte mso 9)|(IE)]>
+                </td>
+              </tr>
+            </table>
+                <![endif]-->
+            </div>
+          </div>
+          <div class="table 100p pt15 gmail-pt15" style="padding-top:15px;">
+            <!--[if gte mso 12]>
+                <br>
+                <br>
+              <![endif]-->
+            <div class="td pt25 pb25 pl25 pr25" style="padding-top:25px;padding-bottom:25px;padding-right:25px;padding-left:25px;background-color: #ffffff; border-radius: 3px;">
+              <!--[if (gte mso 9)|(IE)]>
+                  <table cellspacing="0" cellpadding="0" border="0" width="100%" role="presentation" bgcolor="#ffffff" style="mso-padding-alt: 25px;">
+                    <tr>
+                      <td width="50" align="left" valign="middle">
+                <![endif]-->
+              <div class="vam" style="vertical-align:middle;display: table-cell;">
+                <a href="http://pages.litmus.com/e/31032/rce-email-utm-medium-marketing/dmfp1h/456279260" target="_blank" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;"><img src="http://pages.litmus.com/l/31032/2017-02-10/bqvmp2/31032/107381/sendyy.png" width="50" height="50" style="display: block; border: 0px;"/></a>
+              </div>
+              <!--[if (gte mso 9)|(IE)]>
+                </td>
+                <td align="left" valign="middle" class="pt20">
+                <![endif]-->
+              <div class="pl25 vam tal" style="padding-left:25px;text-align:left;vertical-align:middle;display: table-cell;">
+                <p class="pt5 lh24 fsz18" style="margin:0;font-size:16px;font-family:'proxima_nova_rgregular', Proxima Nova, Hevletica, Arial, sans-serif;padding-top:5px;font-size:18px;line-height:24px;">
+                  <a href="http://pages.litmus.com/e/31032/rce-email-utm-medium-marketing/dmfp1h/456279260" target="_blank" class="link" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;color:#0088cc;text-decoration:underline;">The Ultimate Guide to Email on Android</a>
+                </p>
+              </div>
+              <!--[if (gte mso 9)|(IE)]>
+                </td>
+              </tr>
+            </table>
+                <![endif]-->
+            </div>
+          </div>
+          <div class="table 100p pt15 gmail-pt15" style="padding-top:15px;">
+            <!--[if gte mso 12]>
+                <br>
+                <br>
+              <![endif]-->
+            <div class="td pt25 pb25 pl25 pr25" style="padding-top:25px;padding-bottom:25px;padding-right:25px;padding-left:25px;background-color: #ffffff; border-radius: 3px;">
+              <!--[if (gte mso 9)|(IE)]>
+                  <table cellspacing="0" cellpadding="0" border="0" width="100%" role="presentation" bgcolor="#ffffff" style="mso-padding-alt: 25px;">
+                    <tr>
+                      <td width="50" align="left" valign="middle">
+                <![endif]-->
+              <div class="vam" style="vertical-align:middle;display: table-cell;">
+                <a href="http://pages.litmus.com/e/31032/rce-email-utm-medium-marketing/dmfp1k/456279260" target="_blank" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;"><img src="http://pages.litmus.com/l/31032/2017-02-10/bqvmpb/31032/107385/love_letter2.png" width="50" height="50" style="display: block; border: 0px;"/></a>
+              </div>
+              <!--[if (gte mso 9)|(IE)]>
+                </td>
+                <td align="left" valign="middle" class="pt20">
+                <![endif]-->
+              <div class="pl25 vam tal" style="padding-left:25px;text-align:left;vertical-align:middle;display: table-cell;">
+                <p class="pt5 lh24 fsz18" style="margin:0;font-size:16px;font-family:'proxima_nova_rgregular', Proxima Nova, Hevletica, Arial, sans-serif;padding-top:5px;font-size:18px;line-height:24px;">
+                  <a href="http://pages.litmus.com/e/31032/rce-email-utm-medium-marketing/dmfp1k/456279260" target="_blank" class="link" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;color:#0088cc;text-decoration:underline;">Benefits of Using HTML/CSS Templates Over Drag and Drop Editors</a>
+                </p>
+              </div>
+              <!--[if (gte mso 9)|(IE)]>
+                </td>
+              </tr>
+            </table>
+                <![endif]-->
+            </div>
+          </div>
+          <!--[if (gte mso 9)|(IE)]>
+            </td>
+          </tr>
+        </table>
+            <![endif]-->
+        </div>
+        <!--[if (gte mso 9)|(IE)]>
+          </td>
+        </tr>
+      </table>
+          <![endif]-->
+      </div>
+      <!--[if (gte mso 9)|(IE)]>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+        <![endif]-->
+    </div>
+    <div class="section" style="max-width:1200px;margin:0 auto;background-color:#ffffff;background-color: #f0f0f0;">
+      <!--[if (gte mso 9)|(IE)]>
+          <table cellspacing="0" padding="0" border="0" width="100%" role="presentation">
+            <tr>
+              <td align="center" bgcolor="#f0f0f0" style="mso-padding-bottom-alt: 75px; mso-padding-top-alt: 75px;">
+        <![endif]-->
+      <div class="pt50 pb50 des-pt75 des-pb75" style="padding-top:50px;padding-bottom:50px;">
+        <!--[if (gte mso 9)|(IE)]>
+            <table cellspacing="0" padding="0" border="0" width="600" role="presentation">
+              <tr>
+                <td align="center">
+          <![endif]-->
+        <div class="max600 center pl25 pr25" style="padding-right:25px;padding-left:25px;max-width:600px;margin:0 auto;max-width: 600px; margin: 0 auto;">
+          <div class="session tac" style="text-align:center;">
+            <!--[if (gte mso 9)|(IE)]>
+                <table cellspacing="0" padding="0" border="0" width="100%" role="presentation">
+                  <tr>
+                    <td align="center" valign="top">
+              <![endif]-->
+            <img src="http://pages.litmus.com/l/31032/2014-10-06/h3mtw/31032/36290/litmus_logo_wheel.png" alt="Litmus" width="90" height="90" border="0" style="margin:0 auto;display: block; color: #888888; font-family: sans-serif;" class="center" />
+
+            <h2 style="margin:0;font-family:'proxima_nova_rgbold', Proxima Nova, Helvetica, Arial, sans-serif;font-size:28px;line-height:32px;color:#444444;padding-top:15px;mso-margin-top-alt: 15px;" class="pt15">
+                Sign Up for a Free Litmus Demo
+                    </h2>
+            <p class="pt15" style="margin:0;font-size:16px;line-height:24px;font-family:'proxima_nova_rgregular', Proxima Nova, Hevletica, Arial, sans-serif;padding-top:15px;color: #888888; mso-padding-top-alt: 15px;">
+
+              New to Litmus, curious, or just need a quick refresher on how Litmus can improve your email creation process? Join our customer support team for a walk through of the Litmus Email Creative Platform.
+              <!--[if gte mso 12]>
+                  <br>
+                  <br>
+                <![endif]-->
+            </p>
+            <!--[if (gte mso 9)|(IE)]>
+              </td>
+            </tr>
+          </table>
+              <![endif]-->
+          </div>
+        </div>
+        <!--[if (gte mso 9)|(IE)]>
+          </td>
+        </tr>
+      </table>
+          <![endif]-->
+        <div class="center pt25 pl25 pr25" style="padding-top:25px;padding-right:25px;padding-left:25px;margin:0 auto;max-width: 600px; margin: 0 auto;">
+          <!--[if gte mso 12]>
+              <table cellspacing="0" padding="0" border="0" width="500" role="presentation" align="center">
+                <tr>
+                  <td align="center" valign="top">
+            <![endif]-->
+          <div class="tac" style="text-align:center;">
+            <div class="table w100p">
+              <!--[if gte mso 12]>
+                  <table cellspacing="0" padding="0" border="0" width="100%" role="presentation">
+                    <tr>
+                      <td width="240" align="center" style="mso-padding-top-alt: 25px;">
+                <![endif]-->
+              <table cellspacing="0" cellpadding="0" border="0" width="100%" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
+                <tr>
+                  <td bgcolor="#f36c5e" class="pt5 pb5 pl10 pr10" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;padding:0px;padding-top:5px;padding-bottom:5px;padding-right:10px;padding-left:10px;border-radius: 3px 3px 0 0;" align="center">
+                    <p class="white fsz20 bold" style="margin:0;font-size:16px;line-height:24px;font-family:'proxima_nova_rgregular', Proxima Nova, Hevletica, Arial, sans-serif;color:#353a3e;font-family:'proxima_nova_rgbold', Proxima Nova, Helvetica, Arial, sans-serif;font-weight:bold;font-size:20px;color:#ffffff;">DEC</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="center" bgcolor="#ffffff" class="pt15 pb15 pl10 pr10" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;padding:0px;padding-right:10px;padding-left:10px;padding-top:15px;padding-bottom:15px;border-radius: 0 0 3px 3px;">
+                    <p class="fsz60 lh60" style="margin:0;font-size:16px;line-height:24px;font-family:'proxima_nova_rgregular', Proxima Nova, Hevletica, Arial, sans-serif;font-size:60px;line-height:60px;">
+                      <b style="color:#757b81;font-family:'proxima_nova_rgbold', Proxima Nova, Helvetica, Arial, sans-serif;color: #333333;">14</b>
+                    </p>
+                    <p style="margin:0;font-size:16px;line-height:24px;font-family:'proxima_nova_rgregular', Proxima Nova, Hevletica, Arial, sans-serif;color: #333333;">2PM EST</p>
+                  </td>
+                </tr>
+              </table>
+              <!--[if gte mso 12]>
+                </td>
+                <td width="20" align="center" style="mso-padding-top-alt: 25px;">
+                <![endif]-->
+              <div class="td w5p">&nbsp;</div>
+              <!--[if gte mso 12]>
+                </td>
+                <td width="240" align="center" style="mso-padding-top-alt: 25px;">
+                <![endif]-->
+              <table cellspacing="0" cellpadding="0" border="0" width="100%" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
+                <tr>
+                  <td bgcolor="#f36c5e" class="pt5 pb5 pl10 pr10" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;padding:0px;padding-top:5px;padding-bottom:5px;padding-right:10px;padding-left:10px;border-radius: 3px 3px 0 0;" align="center">
+                    <p class="white fsz20 bold" style="margin:0;font-size:16px;line-height:24px;font-family:'proxima_nova_rgregular', Proxima Nova, Hevletica, Arial, sans-serif;color:#353a3e;font-family:'proxima_nova_rgbold', Proxima Nova, Helvetica, Arial, sans-serif;font-weight:bold;font-size:20px;color:#ffffff;">DEC</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="center" bgcolor="#ffffff" class="pt15 pb15 pl10 pr10" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;padding:0px;padding-right:10px;padding-left:10px;padding-top:15px;padding-bottom:15px;border-radius: 0 0 3px 3px;">
+                    <p class="fsz60 lh60" style="margin:0;font-size:16px;line-height:24px;font-family:'proxima_nova_rgregular', Proxima Nova, Hevletica, Arial, sans-serif;font-size:60px;line-height:60px;">
+                      <b style="color:#757b81;font-family:'proxima_nova_rgbold', Proxima Nova, Helvetica, Arial, sans-serif;color: #333333;">20</b>
+                    </p>
+                    <p style="margin:0;font-size:16px;line-height:24px;font-family:'proxima_nova_rgregular', Proxima Nova, Hevletica, Arial, sans-serif;color: #333333;">11AM EST</p>
+                  </td>
+                </tr>
+              </table>
+              <!--[if gte mso 12]>
+                </td>
+              </tr>
+            </table>
+                <![endif]-->
+            </div>
+          </div>
+          <!--[if gte mso 12]>
+            </td>
+          </tr>
+        </table>
+            <![endif]-->
+        </div>
+        <div class="pt20 max600 center pl25 pr25" style="padding-top:20px;padding-right:25px;padding-left:25px;max-width:600px;margin:0 auto;max-width: 600px; margin: 0 auto;">
+          <!--[if (gte mso 9)|(IE)]>
+              <table cellspacing="0" padding="0" border="0" width="600" role="presentation" align="center">
+                <tr>
+                  <td align="center" valign="top" style="mso-padding-top-alt: 25px;" >
+            <![endif]-->
+          <div class="tac" style="text-align:center;">
+            <p style="margin:0;font-size:16px;line-height:24px;font-family:'proxima_nova_rgregular', Proxima Nova, Hevletica, Arial, sans-serif;">
+              <a href="http://pages.litmus.com/e/31032/rt-8307007545656357377/dmfp1m/456279260" target="_blank" class="cta fsz18" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;font-size:18px;font-family:'proxima_nova_rgbold', Proxima Nova, Helvetica, Arial, sans-serif;font-weight:normal;color:#ffffff;text-decoration:none;border-radius:30px;padding:15px 30px;display:inline-block;font-weight:bold;mso-padding-alt:0px;margin-top:20px;background-color: #f36c5e; border: 1px solid #f36c5e; mso-border-alt: 8px solid #f36c5e; color: #ffffff;">Register now &rarr;</a>
+            </p>
+          </div>
+          <!--[if (gte mso 9)|(IE)]>
+            </td>
+          </tr>
+        </table>
+            <![endif]-->
+        </div>
+        <!--[if (gte mso 9)|(IE)]>
+          </td>
+        </tr>
+      </table>
+          <![endif]-->
+      </div>
+      <!--[if (gte mso 9)|(IE)]>
+        </td>
+      </tr>
+    </table>
+        <![endif]-->
+    </div>
+    <div class="section" style="max-width:1200px;margin:0 auto;background-color:#ffffff;">
+      <!--[if (gte mso 9)|(IE)]>
+          <table cellspacing="0" cellpadding="0" border="0" width="100%" align="center" role="presentation" bgcolor="#ffffff">
+            <tr>
+              <td align="center" style="mso-padding-bottom-alt: 75px;">
+                <table cellspacing="0" cellpadding="0" border="0" width="600" align="center" role="presentation">
+                  <tr>
+                    <td align="center" style="padding-top: 75px;">
+        <![endif]-->
+      <div class="center tac pt75 pb25 pl15 pr15" style="padding-right:15px;padding-left:15px;padding-bottom:25px;padding-top:75px;text-align:center;margin:0 auto;max-width: 650px;">
+        <h2 style="margin:0;font-family:'proxima_nova_rgbold', Proxima Nova, Helvetica, Arial, sans-serif;font-size:28px;line-height:32px;color:#444444;color: #333333;">
+            Want more email news in your inbox?
+                </h2>
+        <p class="p pt15 fsz16" style="margin:0;font-family:'proxima_nova_rgregular', Proxima Nova, Hevletica, Arial, sans-serif;padding-top:15px;color:#7f8c8d;font-size:16px;line-height:24px;">
+          Get a weekly dose of Litmus and the latest email marketing news when you sign up for Litmus Weekly.<br>
+          <!--[if gte mso 12]>
+              <br>
+            <![endif]-->
+          <a href="http://pages.litmus.com/e/31032/rce-email-utm-medium-marketing/dmfp1p/456279260" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;font-size:16px;font-family:'proxima_nova_rgbold', Proxima Nova, Helvetica, Arial, sans-serif;font-weight:normal;color:#ffffff;text-decoration:none;border-radius:30px;padding:15px 30px;display:inline-block;font-weight:bold;mso-padding-alt:0px;margin-top:20px;background-color: #7c72dc; border: 1px solid #7c72dc; mso-border-alt: 8px solid #7c72dc;"
+            class="cta fsz16">Sign up for Litmus Weekly &rarr;</a>
+        </p>
+      </div>
+      <!--[if gte mso 12]>
+          <br>
+          <br>
+          <br>
+        <![endif]-->
+      <div style="padding-right:15px;padding-left:15px;padding-top:50px;padding-bottom:50px;text-align:center;color:#999999;max-width: 600px; margin: 0 auto;" class="footer tac pt50 pb50 pl15 pr15">
+        <a href="http://pages.litmus.com/e/31032/2017-12-13/dmfp1r/456279260" target="_blank" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;color:#999999;text-decoration:underline;">
+            <img src="http://pages.litmus.com/l/31032/2014-04-17/2hs6f/31032/17328/litmus_logo_footer.png" width="30" height="30" border="0" style="display:inline-block;">
+          </a>
+        <p class="pt15" style="margin:0;font-size:16px;line-height:24px;font-family:'proxima_nova_rgregular', Proxima Nova, Hevletica, Arial, sans-serif;padding-top:15px;font-size:13px;line-height:18px;">
+          <span class="appleFooter">675 Massachusetts Ave.<br>
+              Cambridge, MA 02139, USA</span><br>
+          <a href="#" target="_blank" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;color:#999999;text-decoration:underline;">View online</a>
+          <br>
+          <br> You&rsquo;re receiving this email because you&rsquo;ve signed up to receive updates from Litmus. If you&rsquo;d prefer not to receive updates, you can <a href="#" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;color:#999999;text-decoration:underline;color:#999999;">manage your preferences</a>          or <a href="#" style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;color:#999999;text-decoration:underline;color:#999999;">unsubscribe from all</a>.
+          <br>
+          <br> With the Litmus Email Creative Platform, get access to the most advanced email tools to enable you and your team to do their best work and drive innovation. <a href="http://pages.litmus.com/e/31032/rce-email-utm-medium-marketing/dmfp1t/456279260"
+            style="font-family:'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif;color:#999999;text-decoration:underline;color:#999999; text-decoration:underline;">Learn how Litmus can help you send better email&nbsp;today.</a>
+          <br>
+          <br>
+        </p>
+
+
+      </div>
+      <!--[if (gte mso 9)|(IE)]>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+        <![endif]-->
+    </div>
+  </div>
+</body>
+
+</html>
